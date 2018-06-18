@@ -77,9 +77,11 @@ document.addEventListener('keydown', function (e) {
                 hiddenLetters[i] = letterGuess;
             }
         }
-    } else {
+    } else if (keyStroke.includes(letterGuess)) {
         guesses--;
         spaceTheGame.gameContent();
+    } else {
+
     };
 
     //winloss
@@ -91,7 +93,7 @@ document.addEventListener('keydown', function (e) {
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
         spaceTheGame.startOver();
-    };s
+    };
 });
 
 
