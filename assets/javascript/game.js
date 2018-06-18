@@ -1,6 +1,5 @@
 var planets = [ "mercury","venus","earth","mars","jupiter","saturn","neptune","uranus","pluto",];
 
-var planets = [];
 var wins = 0;          
 var losses = 0;         
 var guesses = 6;      
@@ -11,6 +10,9 @@ var incorrectLetters = [];
 var guessed = [];
 
 var keyStroke= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+var selectedPlanet = planets[Math.floor(Math.random() * planets.length)];
+console.log(selectedPlanet);
 
 /// giant object
 var spaceTheGame =  {
