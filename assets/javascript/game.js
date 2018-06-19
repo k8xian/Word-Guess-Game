@@ -1,5 +1,3 @@
-var planets = [ "mercury","venus","earth","mars","jupiter","saturn","neptune","uranus","pluto",];
-
 var wins = 0;          
 var losses = 0;         
 var guesses = 6;      
@@ -9,13 +7,17 @@ var currentWord = [];
 var incorrectLetters = [];  
 var guessed = [];
 
-var keyStroke= ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-var selectedPlanet = planets[Math.floor(Math.random() * planets.length)];
-console.log(selectedPlanet);
-
 /// giant object
 var spaceTheGame =  {
+    planets: [ "mercury","venus","earth","mars","jupiter","saturn","neptune","uranus","pluto",],
+
+    keyStroke: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+
+    randomizePlanet: function(){
+        selectedPlanet = this.planets[Math.floor(Math.random() * this.planets.length)];
+        return selectedPlanet;
+    },
+
     creatingBlanks: function(){
         for (var i = 0; i < selectedPlanet.length; i++) {
             hiddenLetters.push(" _ ");
@@ -25,10 +27,6 @@ var spaceTheGame =  {
         }
     },
 
-    randomizePlanet: function(){
-        selectedPlanet = planets[Math.floor(Math.random() * planets.length)];
-        return selectedPlanet;
-    },
 
     gameContent: function(){
         document.getElementById("guesses").textContent = "Guesses left: " + guesses;
@@ -55,15 +53,17 @@ var spaceTheGame =  {
 }
 
 //calling functions
-spaceTheGame.randomizePlanet();
-spaceTheGame.creatingBlanks();
-spaceTheGame.gameContent();
+document.addEventListener('keydown', function (e) {
+    if(e.keyCode == 32) {
+        spaceTheGame.startOver(); 
+    }
+});
 
 //detecting keys
 document.addEventListener('keydown', function (e) {
     var letterGuess = e.key;
 
-    if (guessed.indexOf(letterGuess) === -1 && keyStroke.includes(letterGuess)){
+    if (guessed.indexOf(letterGuess) === -1 && spaceTheGame.keyStroke.includes(letterGuess)){
         guessed.push(letterGuess);
         spaceTheGame.gameContent();
     };
