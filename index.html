@@ -10,15 +10,18 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Comfortaa" rel="stylesheet">
 </head>
 
 <body>
-    <div class="gameHead">
+    <div class="game__title">
         <h1>Space: The Game</h1>
-        <h2>tap space to start</h2>
-        <h3>see what I did there?</h3>
+        <div id="cheekyComment">
+            <h2>tap the 'space' key to start</h2>
+            <h3>see what I did there?</h3>
+        </div>
     </div>
-    <div class="gameBody">
+    <div id="gameContainer">
         <h4 id="wins"></h4>
         <h4 id="losses"></h4>
         <h4 id="guesses"></h4>
@@ -26,8 +29,12 @@
         <h4 id="spaces"></h4>
         <h4 id="lettersIncorrect"></h4>
         <h4 id="lettersGuessed"></h4>
+
     </div>
 
+    <div class="footer">
+    <h4 id="portfolio">Return to Portfolio</h4>
+    </div>
     <script src="assets/javascript/game.js"></script>
 
 </body>

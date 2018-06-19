@@ -1,0 +1,50 @@
+body {
+    color: white;
+    text-align: center;
+    background-color: black;
+    font-family: 'Comfortaa', cursive;
+    background-image: URL('../images/space.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Audiowide', cursive;
+    font-size: 4em;
+    text-shadow: 0 5px 0 black;
+}
+
+h2, h3 {
+    text-shadow: 0 5px 0 black;
+}
+
+#gameContainer {
+    background-color: rgba(0,0,0,.72);
+    border-radius: 20px;
+    width: 40%;
+    padding: 50px;
+    margin: -215px auto 50px;
+    visibility: hidden;
+}
+
+#cheekyComment{
+    background-color: rgba(0,0,0,.72);
+    border-radius: 20px;
+    width: 40%;
+    padding: 50px;
+    visibility: visible;
+    margin: auto;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(0,0,0,.9);
+    height: 72px;
+    bottom: 0;
+    width: 100%;
+}

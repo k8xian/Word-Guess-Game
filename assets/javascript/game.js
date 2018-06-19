@@ -1,3 +1,4 @@
+//some variables
 var wins = 0;          
 var losses = 0;         
 var guesses = 6;      
@@ -7,7 +8,7 @@ var currentWord = [];
 var incorrectLetters = [];  
 var guessed = [];
 
-/// giant object
+//giant object
 var spaceTheGame =  {
     planets: [ "mercury","venus","earth","mars","jupiter","saturn","neptune","uranus","pluto",],
 
@@ -52,14 +53,18 @@ var spaceTheGame =  {
 
 }
 
-//calling functions
+//press space to start! 
 document.addEventListener('keydown', function (e) {
     if(e.keyCode == 32) {
+        document.getElementById('gameContainer').style.visibility = "visible";
+        document.getElementById('cheekyComment').style.visibility = "hidden";
         spaceTheGame.startOver(); 
+// change visibility of box upon click
+    
     }
 });
 
-//detecting keys
+//detecting key guesses
 document.addEventListener('keydown', function (e) {
     var letterGuess = e.key;
 
@@ -82,6 +87,7 @@ document.addEventListener('keydown', function (e) {
             }
         }
 
+      //if it's a valid key guess, it removes a remaining guess
     } else if (keyStroke.includes(letterGuess)) {
         guesses--;
         spaceTheGame.gameContent();
@@ -90,13 +96,14 @@ document.addEventListener('keydown', function (e) {
         
     };
 
-    //winloss
+    //if guesses hit 0,you lose, 'losses' increases by 1
     if (guesses === 0) {
         losses++;          
         spaceTheGame.startOver();
         console.log(selectedPlanet);
     };
 
+    //if you win, if guesses hit 
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
         spaceTheGame.startOver();
@@ -129,4 +136,9 @@ document.addEventListener('keydown', function (e) {
     //upon closing, start over
 
 
-// global variables
+//other stuff
+    //add a keyboard that appears only in mobile view
+
+
+//link to portfolio
+    //link from portfolio
