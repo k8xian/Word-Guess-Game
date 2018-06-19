@@ -2,7 +2,7 @@ body {
     color: white;
     text-align: center;
     background-color: black;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Montserrat', sans-serif;
     background-image: URL('../images/space.jpg');
     background-size: cover;
     background-position: center;
@@ -11,6 +11,24 @@ body {
     width: 100vw;
     overflow: hidden;
 }
+
+.grid {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 20% auto 20%;
+    grid-template-rows: 10% auto 72px
+}
+
+.header {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+.footer {
+    grid-column: 1/4;
+    grid-row: 3/4;
+}
+
 
 h1 {
     font-family: 'Audiowide', cursive;
@@ -25,19 +43,19 @@ h2, h3 {
 #gameContainer {
     background-color: rgba(0,0,0,.72);
     border-radius: 20px;
-    width: 40%;
     padding: 50px;
-    margin: -215px auto 50px;
+    grid-column: 2/3;
+    grid-row: 2/3;
     visibility: hidden;
 }
 
 #cheekyComment{
     background-color: rgba(0,0,0,.72);
     border-radius: 20px;
-    width: 40%;
+    grid-column: 2/3;
+    grid-row: 2/3;
     padding: 50px;
     visibility: visible;
-    margin: auto;
 }
 
 .footer {
@@ -51,4 +69,19 @@ h2, h3 {
 
 p {
     font-size: 12px;
+}
+
+#portfolio {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    float: left;
+    color: #18ffff;
+    text-decoration: none;
+    position: absolute;
+    bottom: 10%;
+    left: 3%;
+}
+
+#copyright {
+    line-height: 44px;
 }
