@@ -88,11 +88,9 @@ document.addEventListener('keydown', function (e) {
         }
 
       //if it's a valid key guess, it removes a remaining guess
-    } else if (keyStroke.includes(letterGuess)) {
+    } else if (spaceTheGame.keyStroke.includes(letterGuess)) {
         guesses--;
         spaceTheGame.gameContent();
-
-    } else {
         
     };
 
@@ -107,7 +105,7 @@ document.addEventListener('keydown', function (e) {
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
         spaceTheGame.startOver();
-        console.log(selectedPlanet);
+        console.log(selectedPlanet); 5000
     };
 });
 
