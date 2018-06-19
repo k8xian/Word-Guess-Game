@@ -71,7 +71,7 @@ p {
     font-size: 12px;
 }
 
-#portfolio {
+#portfolio-link {
     grid-column: 1/2;
     grid-row: 2/3;
     float: left;
