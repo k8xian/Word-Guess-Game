@@ -65,6 +65,7 @@ document.addEventListener('keydown', function (e) {
 
     if (guessed.indexOf(letterGuess) === -1 && keyStroke.includes(letterGuess)){
         guessed.push(letterGuess);
+        spaceTheGame.gameContent();
     };
 
     //checking if correct
@@ -75,32 +76,38 @@ document.addEventListener('keydown', function (e) {
         for (var i = 0; i < currentWord.length; i++) {
             if (currentWord[i] === letterGuess) {
                 hiddenLetters[i] = letterGuess;
+                console.table(hiddenLetters);
+                console.table(currentWord);
+                spaceTheGame.gameContent();
             }
         }
+
     } else if (keyStroke.includes(letterGuess)) {
         guesses--;
         spaceTheGame.gameContent();
-    } else {
 
+    } else {
+        
     };
 
     //winloss
     if (guesses === 0) {
         losses++;          
         spaceTheGame.startOver();
+        console.log(selectedPlanet);
     };
 
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
         spaceTheGame.startOver();
+        console.log(selectedPlanet);
     };
 });
 
 
 
 
-
- //start with word bank array
+//start with word bank array
 //make a random selection from this word bank
 //create an array full of blanks the length of the selected word
 //create an array full of letters containing the selected word
