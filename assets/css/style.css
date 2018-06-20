@@ -40,6 +40,10 @@ h2, h3 {
     text-shadow: 0 5px 0 black;
 }
 
+h2 {
+    color: #18ffff;
+}
+
 #gameContainer {
     background-color: rgba(0,0,0,.72);
     border-radius: 20px;
@@ -47,6 +51,41 @@ h2, h3 {
     grid-column: 2/3;
     grid-row: 2/3;
     visibility: hidden;
+}
+
+#endContainer {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: rgba(0,0,0,.72);
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+
+}
+
+#planetPic{
+    width: 100%;
+    height: 370px;
+    margin: -88px auto 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+}
+
+#planetFact{
+    margin-top: -74px;
+    margin-bottom: 55px;
+}
+
+#endMsg{
+    margin-top: -260px;
+    margin-bottom: 171px;
+}
+
+#toContinue {
+    margin-top: -50px;
+    margin-bottom: 50px;
 }
 
 #cheekyComment{
@@ -65,6 +104,7 @@ h2, h3 {
     height: 72px;
     bottom: 0;
     width: 100%;
+    border-top: 1px solid #18ffff;;
 }
 
 p {
@@ -75,11 +115,19 @@ p {
     grid-column: 1/2;
     grid-row: 2/3;
     float: left;
-    color: #18ffff;
+    color: white;
     text-decoration: none;
     position: absolute;
-    bottom: 10%;
+    bottom: 12%;
     left: 3%;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.85);
+    transition-property: color;
+    transition-duration: 1s;
+}
+
+#portfolio-link:hover{
+    cursor: pointer;
+    color: #18ffff;
 }
 
 #copyright {

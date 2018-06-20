@@ -1,7 +1,7 @@
 //some variables
 var wins = 0;          
 var losses = 0;         
-var guesses = 6;      
+var guesses = 12;      
 var selectedPlanet = "";    
 var hiddenLetters = [];    
 var currentWord = [];   
@@ -28,6 +28,9 @@ var spaceTheGame =  {
         }
     },
 
+   // planetFacts: ['.39', '.723', '1', '1.524', '5.203', '9.539', '19.18', '30.06', '39.53',],
+   // trying to get this fact to work
+
 
     gameContent: function(){
         document.getElementById("guesses").textContent = "Guesses left: " + guesses;
@@ -40,7 +43,7 @@ var spaceTheGame =  {
     },
 
     startOver: function(){
-        guesses = 6;
+        guesses = 12;
         hiddenLetters = [];
         currentWord = [];
         incorrectLetters = [];
@@ -51,13 +54,22 @@ var spaceTheGame =  {
        this.gameContent();
     },
 
+    endCondition: function(){
+        document.getElementById('endContainer').style.visibility = "visible";
+        document.getElementById('gameContainer').style.visibility = "hidden";
+        document.getElementById("planetName").textContent = selectedPlanet;
+      //  document.getElementById("planetFact").textContent = selectedPlanet + " is " + this.planetFacts[this.planetDist] + " AU from the sun";
+      //  document.getElementById('planetPic').style.backgroundImage="URL('../images/" + selectedPlanet + ".png');";
+    },
+
 }
 
-//press space to start! 
+//press space to start or continue! 
 document.addEventListener('keydown', function (e) {
     if(e.keyCode == 32) {
         document.getElementById('gameContainer').style.visibility = "visible";
         document.getElementById('cheekyComment').style.visibility = "hidden";
+        document.getElementById('endContainer').style.visibility = "hidden";
         spaceTheGame.startOver(); 
 // change visibility of box upon click
     
@@ -96,15 +108,17 @@ document.addEventListener('keydown', function (e) {
 
     //if guesses hit 0,you lose, 'losses' increases by 1
     if (guesses === 0) {
-        losses++;          
-        spaceTheGame.startOver();
+        losses++;  
+        spaceTheGame.endCondition();        
+        document.getElementById("endMsg").textContent = "You Lose!";
         console.log(selectedPlanet);
     };
 
     //if you win, if guesses hit 
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
-        spaceTheGame.startOver();
+        spaceTheGame.endCondition();     
+        document.getElementById("endMsg").textContent = "You Win!";
         console.log(selectedPlanet); 5000
     };
 });
