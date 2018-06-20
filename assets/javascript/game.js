@@ -1,7 +1,7 @@
 //some variables
 var wins = 0;          
 var losses = 0;         
-var guesses = 12;      
+var guesses = 8;      
 var selectedPlanet = "";    
 var hiddenLetters = [];    
 var currentWord = [];   
@@ -68,7 +68,7 @@ var spaceTheGame =  {
 
     //method for beginning a new round
     startOver: function(){
-        guesses = 12;
+        guesses = 8;
         hiddenLetters = [];
         currentWord = [];
         incorrectLetters = [];
