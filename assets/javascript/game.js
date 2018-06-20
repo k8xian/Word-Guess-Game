@@ -37,9 +37,9 @@ var spaceTheGame =  {
         document.getElementById("lettersIncorrect").textContent = "Incorrect letters: " + incorrectLetters;
         document.getElementById("lettersGuessed").textContent = "Guessed letters: " + guessed;
         document.getElementById("numWord").textContent = "( " + selectedPlanet.length + " letter word" + " )";
-        document.getElementById("spaces").textContent = "|  " + hiddenLetters.join(" ") + "  |";
+        document.getElementById("spaces").textContent = "  " + hiddenLetters.join(" ") + "  ";
         document.getElementById("wins").textContent = "Wins: " + wins;
-        document.getElementById("losses").textContent = "losses: " + losses;
+        document.getElementById("losses").textContent = "Losses: " + losses;
     },
 
     startOver: function(){
@@ -59,7 +59,7 @@ var spaceTheGame =  {
         document.getElementById('gameContainer').style.visibility = "hidden";
         document.getElementById("planetName").textContent = selectedPlanet;
       //  document.getElementById("planetFact").textContent = selectedPlanet + " is " + this.planetFacts[this.planetDist] + " AU from the sun";
-      //  document.getElementById('planetPic').style.backgroundImage="URL('../images/" + selectedPlanet + ".png');";
+        document.getElementById('planetPic').innerHTML='<img src="assets/images/' + selectedPlanet + '.png" alt="' + selectedPlanet  +  'image" height="200px"/>';
     },
 
 }
