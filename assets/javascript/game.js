@@ -1,4 +1,4 @@
-//some variables
+//yay variables
 var wins = 0;          
 var losses = 0;         
 var guesses = 8;      
@@ -9,15 +9,14 @@ var incorrectLetters = [];
 var guessed = [];
 
 
-
-
-
-
 //giant object
 var spaceTheGame =  {
+    //word bank
     planets: [ "mercury","venus","earth","mars","jupiter","saturn","neptune","uranus","pluto",],
 
+    //guessing options
     keyStroke: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
+
 
     //method for selecting a planet randomly
     randomizePlanet: function(){
@@ -25,6 +24,7 @@ var spaceTheGame =  {
         console.log(selectedPlanet)
         return selectedPlanet;
     },
+
 
     //method for generating blank spaces
     creatingBlanks: function(){
@@ -44,6 +44,7 @@ var spaceTheGame =  {
     audioWin:new Audio('assets/audio/win.mp3'),
     audioLose:new Audio('assets/audio/lose.mp3'),
 
+
     //preloading audio 
     audioPreloader: function(){
         this.audioCorrect.preload = "auto";
@@ -53,7 +54,9 @@ var spaceTheGame =  {
         this.audioLose.preload = "auto";
     },
 
+
     // trying to get the winning screen to display the distance a planet is from the sun
+    //this relates to a thing that isn't working yet
     planetFacts: {mercury: '.39', venus: '.723', earth: '1', mars:'1.524', jupiter: '5.203', saturn: '9.539', uranus: '19.18', neptune: '30.06', pluto: '39.53',},
     
 
@@ -68,6 +71,7 @@ var spaceTheGame =  {
         document.getElementById("losses").textContent = "Losses: " + losses;
     },
 
+
     //method for beginning a new round
     startOver: function(){
         guesses = 8;
@@ -76,34 +80,43 @@ var spaceTheGame =  {
         incorrectLetters = [];
         guessed = []
     
+
     //calling methods above to start a new round
        this.audioPreloader();
        this.randomizePlanet();
        this.creatingBlanks();
        this.gameContent();
 
-    //changing visilbity of DOM elements on page
+
+    //changing visilbity of DOM elements on page to have game board visible
        document.getElementById('gameContainer').style.visibility = "visible";
        document.getElementById('cheekyComment').style.visibility = "hidden";
        document.getElementById('endContainer').style.visibility = "hidden";
        document.getElementById('plutoComment').style.visibility = "hidden";
     },
 
+
     //method for ending a round and displaying planet picture
     endCondition: function(){
+        //making visible the winning/losing screen and hiding the game screen
         document.getElementById('endContainer').style.visibility = "visible";
-        
-    //adding a comment for the pedants about how YES I KNOW PLUTO ISN'T A PLANET ANYMORE
-        if (selectedPlanet == 'pluto'){
-        document.getElementById('plutoComment').style.visibility = "visible";
-        };
-
         document.getElementById('gameContainer').style.visibility = "hidden";
         document.getElementById("planetName").textContent = selectedPlanet;
 
-      //code for my random fact index lookup thing that isn't working yet
-      //document.getElementById("planetFact").textContent = selectedPlanet + " is " + this.planetFacts.selectedPlanet + " AU from the sun";
+
+        //adding a comment for the pedants about how YES I KNOW PLUTO ISN'T A PLANET ANYMORE
+        if (selectedPlanet == 'pluto'){
+            document.getElementById('plutoComment').style.visibility = "visible";
+            };
+
+
+        //generating an img tag based on the word selected for the ending screen
         document.getElementById('planetPic').innerHTML='<img src="assets/images/' + selectedPlanet + '.png" alt="' + selectedPlanet  +  'image" height="200px"/>';
+
+
+        //code for my random fact index lookup thing that isn't working yet
+        //document.getElementById("planetFact").textContent = selectedPlanet + " is " + this.planetFacts.selectedPlanet + " AU from the sun";
+        
     },
 
 }
@@ -113,7 +126,6 @@ document.addEventListener('keydown', function (e) {
     if(e.keyCode == 32) {
         spaceTheGame.audioSpace.play();
         spaceTheGame.startOver(); 
-// change visibility of box upon click
     
     }
 });
@@ -159,7 +171,7 @@ document.addEventListener('keydown', function (e) {
         console.log(selectedPlanet);
     };
 
-    //if you win, if guesses hit 
+    //if you win,
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
         spaceTheGame.audioWin.play();
@@ -170,7 +182,7 @@ document.addEventListener('keydown', function (e) {
 });
 
 
-
+///some pseudocode to describe functionality
 
 //start with word bank array
 //make a random selection from this word bank
@@ -179,24 +191,35 @@ document.addEventListener('keydown', function (e) {
 
 //check the keystroke against the selected word
     //if there is a match, replace the blanks with the correct guessed letter
-    //log the guess to the "guessed letters" field
+        //play a right sound
+        //log the guess to the "guessed letters" field
 
     //if there is no match, add letter to incorrect letters
-    //remove one point from guesses left
+        //remove one point from guesses left
+        //log to "guessed letters"
+        //log to incorrect letters
+        //play a "wrong" sound
 
 //if there are no more blanks, add you win popup. 
     //wins++
-    //upon closing, start over
+    //adding the name of the gussed word
+    //adding a picture of the planet
+    //adding an audio blip
+    //upon hitting space, start over
 
 //if guesses = 0, stop allowing guesses
     //add you lose popup
     //losses++
-    //upon closing, start over
-
-
-//other stuff
-    //add a keyboard that appears only in mobile view
-
+    //adding the name of the gussed word
+    //adding a picture of the planet
+    //adding an audio blip
+    //upon hitting space, start over
 
 //link to portfolio
     //link from portfolio
+
+//other stuff I haven't done yet but that I'd like to do
+    //add a keyboard that appears only in mobile view
+    //adding a fact for every planet that generates a value from a nested object- is this even the right way to do it?
+
+
