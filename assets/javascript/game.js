@@ -17,6 +17,7 @@ var spaceTheGame =  {
     //method for selecting a planet randomly
     randomizePlanet: function(){
         selectedPlanet = this.planets[Math.floor(Math.random() * this.planets.length)];
+        console.log(selectedPlanet)
         return selectedPlanet;
     },
 
@@ -30,8 +31,9 @@ var spaceTheGame =  {
         }
     },
 
-    // planetFacts: ['.39', '.723', '1', '1.524', '5.203', '9.539', '19.18', '30.06', '39.53',],
     // trying to get the winning screen to display the distance a planet is from the sun
+    planetFacts: ['.39', '.723', '1', '1.524', '5.203', '9.539', '19.18', '30.06', '39.53',],
+    
 
     //method for writing text content to the actual page
     gameContent: function(){
@@ -52,16 +54,31 @@ var spaceTheGame =  {
         incorrectLetters = [];
         guessed = []
     
+    //calling methods above to start a new round
        this.randomizePlanet();
        this.creatingBlanks();
        this.gameContent();
+
+    //changing visilbity of DOM elements on page
+       document.getElementById('gameContainer').style.visibility = "visible";
+       document.getElementById('cheekyComment').style.visibility = "hidden";
+       document.getElementById('endContainer').style.visibility = "hidden";
+       document.getElementById('plutoComment').style.visibility = "hidden";
     },
 
     //method for ending a round and displaying planet picture
     endCondition: function(){
         document.getElementById('endContainer').style.visibility = "visible";
+        
+    //adding a comment for the pedants about how YES I KNOW PLUTO ISN'T A PLANET ANYMORE
+        if (selectedPlanet == 'pluto'){
+        document.getElementById('plutoComment').style.visibility = "visible";
+        };
+
         document.getElementById('gameContainer').style.visibility = "hidden";
         document.getElementById("planetName").textContent = selectedPlanet;
+
+      //code for my random fact index lookup thing that isn't working yet
       //  document.getElementById("planetFact").textContent = selectedPlanet + " is " + this.planetFacts[this.planetDist] + " AU from the sun";
         document.getElementById('planetPic').innerHTML='<img src="assets/images/' + selectedPlanet + '.png" alt="' + selectedPlanet  +  'image" height="200px"/>';
     },
@@ -71,9 +88,6 @@ var spaceTheGame =  {
 //press space to start or continue! 
 document.addEventListener('keydown', function (e) {
     if(e.keyCode == 32) {
-        document.getElementById('gameContainer').style.visibility = "visible";
-        document.getElementById('cheekyComment').style.visibility = "hidden";
-        document.getElementById('endContainer').style.visibility = "hidden";
         spaceTheGame.startOver(); 
 // change visibility of box upon click
     

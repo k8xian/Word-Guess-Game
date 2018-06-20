@@ -21,7 +21,7 @@
 
 ##other info
 * I am the sole maintainer of this code. 
-* *note: I know pluto isn't a major planet anymore, but I like the picture of it. my plan was to include at some point a snarky comment about this if "pluto" is the word to be guessed*
+* *note: please note the note about pluto before hassling me about it not being a planet anymore
 
 
 ##credits
