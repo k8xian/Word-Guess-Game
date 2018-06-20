@@ -32,7 +32,7 @@ var spaceTheGame =  {
     },
 
     // trying to get the winning screen to display the distance a planet is from the sun
-    planetFacts: ['.39', '.723', '1', '1.524', '5.203', '9.539', '19.18', '30.06', '39.53',],
+    planetFacts: {mercury: '.39', venus: '.723', earth: '1', mars:'1.524', jupiter: '5.203', saturn: '9.539', uranus: '19.18', neptune: '30.06', pluto: '39.53',},
     
 
     //method for writing text content to the actual page
@@ -79,7 +79,7 @@ var spaceTheGame =  {
         document.getElementById("planetName").textContent = selectedPlanet;
 
       //code for my random fact index lookup thing that isn't working yet
-      //  document.getElementById("planetFact").textContent = selectedPlanet + " is " + this.planetFacts[this.planetDist] + " AU from the sun";
+      //document.getElementById("planetFact").textContent = selectedPlanet + " is " + this.planetFacts.selectedPlanet + " AU from the sun";
         document.getElementById('planetPic').innerHTML='<img src="assets/images/' + selectedPlanet + '.png" alt="' + selectedPlanet  +  'image" height="200px"/>';
     },
 
