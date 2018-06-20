@@ -1,11 +1,11 @@
 **Space: The Game**
-By Kate Christian
-**k8xian.github.io**
-for Northwestern University's Full Stack Flex Coding Bootcamp
+* By Kate Christian
+* **k8xian.github.io**
+* for Northwestern University's Full Stack Flex Coding Bootcamp
 
 
 ##gameplay
-*This game is a silly take on hangman based on an extremely unfunny pun*
+* *This game is a silly take on hangman based on an extremely unfunny pun*
 
 * The user taps the space bar to begin, and once a round ends to begin a new round
 
