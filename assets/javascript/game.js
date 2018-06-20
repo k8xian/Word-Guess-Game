@@ -14,11 +14,13 @@ var spaceTheGame =  {
 
     keyStroke: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l","m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"],
 
+    //method for selecting a planet randomly
     randomizePlanet: function(){
         selectedPlanet = this.planets[Math.floor(Math.random() * this.planets.length)];
         return selectedPlanet;
     },
 
+    //method for generating blank spaces
     creatingBlanks: function(){
         for (var i = 0; i < selectedPlanet.length; i++) {
             hiddenLetters.push(" _ ");
@@ -28,10 +30,10 @@ var spaceTheGame =  {
         }
     },
 
-   // planetFacts: ['.39', '.723', '1', '1.524', '5.203', '9.539', '19.18', '30.06', '39.53',],
-   // trying to get this fact to work
+    // planetFacts: ['.39', '.723', '1', '1.524', '5.203', '9.539', '19.18', '30.06', '39.53',],
+    // trying to get the winning screen to display the distance a planet is from the sun
 
-
+    //method for writing text content to the actual page
     gameContent: function(){
         document.getElementById("guesses").textContent = "Guesses left: " + guesses;
         document.getElementById("lettersIncorrect").textContent = "Incorrect letters: " + incorrectLetters;
@@ -42,6 +44,7 @@ var spaceTheGame =  {
         document.getElementById("losses").textContent = "Losses: " + losses;
     },
 
+    //method for beginning a new round
     startOver: function(){
         guesses = 12;
         hiddenLetters = [];
@@ -54,6 +57,7 @@ var spaceTheGame =  {
        this.gameContent();
     },
 
+    //method for ending a round and displaying planet picture
     endCondition: function(){
         document.getElementById('endContainer').style.visibility = "visible";
         document.getElementById('gameContainer').style.visibility = "hidden";

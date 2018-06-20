@@ -4,6 +4,7 @@
 * for Northwestern University's Full Stack Flex Coding Bootcamp
 
 
+
 ##gameplay
 * *This game is a silly take on hangman based on an extremely unfunny pun*
 
@@ -20,6 +21,7 @@
 
 ##other info
 * I am the sole maintainer of this code. 
+* *note: I know pluto isn't a major planet anymore, but I like the picture of it. my plan was to include at some point a snarky comment about this if "pluto" is the word to be guessed*
 
 
 ##credits
