@@ -8,25 +8,10 @@ var currentWord = [];
 var incorrectLetters = [];  
 var guessed = [];
 
-var audioCorrect = new Audio('assets/audio/correct.mp3');
-    audioCorrect.preload = "auto";
-    //audioCorrect.play();
 
-var audioIncorrect = new Audio('assets/audio/incorrect.mp3');
-    audioIncorrect.preload = "auto";
-        //audioIncorrect.play();
 
-var audioSpace = new Audio('assets/audio/space.mp3');
-    audioSpace.preload = "auto";
-        //audioSpace.play();
 
-var audioWin = new Audio('assets/audio/win.mp3');
-    audioWin.preload = "auto";
-        //audioWin.play();
 
-var audioLose = new Audio('assets/audio/lose.mp3');
-    audioLose.preload = "auto";
-        //audioLose.play();
 
 //giant object
 var spaceTheGame =  {
@@ -49,6 +34,23 @@ var spaceTheGame =  {
         for (var i = 0; i < selectedPlanet.length; i++) {
             currentWord.push(selectedPlanet[i].charAt())
         }
+    },
+
+
+    //pulling in audio sounds
+    audioCorrect:new Audio('assets/audio/correct.mp3'),
+    audioIncorrect:new Audio('assets/audio/incorrect.mp3'),
+    audioSpace:new Audio('assets/audio/space.mp3'),
+    audioWin:new Audio('assets/audio/win.mp3'),
+    audioLose:new Audio('assets/audio/lose.mp3'),
+
+    //preloading audio 
+    audioPreloader: function(){
+        this.audioCorrect.preload = "auto";
+        this.audioIncorrect.preload = "auto";
+        this.audioSpace.preload = "auto";
+        this.audioWin.preload = "auto";
+        this.audioLose.preload = "auto";
     },
 
     // trying to get the winning screen to display the distance a planet is from the sun
@@ -75,6 +77,7 @@ var spaceTheGame =  {
         guessed = []
     
     //calling methods above to start a new round
+       this.audioPreloader();
        this.randomizePlanet();
        this.creatingBlanks();
        this.gameContent();
@@ -108,7 +111,7 @@ var spaceTheGame =  {
 //press space to start or continue! 
 document.addEventListener('keydown', function (e) {
     if(e.keyCode == 32) {
-        audioSpace.play();
+        spaceTheGame.audioSpace.play();
         spaceTheGame.startOver(); 
 // change visibility of box upon click
     
@@ -134,7 +137,7 @@ document.addEventListener('keydown', function (e) {
                 hiddenLetters[i] = letterGuess;
                 console.table(hiddenLetters);
                 console.table(currentWord);
-                audioCorrect.play();
+                spaceTheGame.audioCorrect.play();
                 spaceTheGame.gameContent();
             }
         }
@@ -142,7 +145,7 @@ document.addEventListener('keydown', function (e) {
       //if it's a valid key guess, it removes a remaining guess
     } else if (spaceTheGame.keyStroke.includes(letterGuess)) {
         guesses--;
-        audioIncorrect.play();
+        spaceTheGame.audioIncorrect.play();
         spaceTheGame.gameContent();
         
     };
@@ -150,7 +153,7 @@ document.addEventListener('keydown', function (e) {
     //if guesses hit 0,you lose, 'losses' increases by 1
     if (guesses === 0) {
         losses++;
-        audioLose.play();  
+        spaceTheGame.audioLose.play();  
         spaceTheGame.endCondition();        
         document.getElementById("endMsg").textContent = "You Lose!";
         console.log(selectedPlanet);
@@ -159,7 +162,7 @@ document.addEventListener('keydown', function (e) {
     //if you win, if guesses hit 
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
-        audioWin.play();
+        spaceTheGame.audioWin.play();
         spaceTheGame.endCondition();     
         document.getElementById("endMsg").textContent = "You Win!";
         console.log(selectedPlanet); 5000
