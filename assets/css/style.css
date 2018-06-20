@@ -57,6 +57,10 @@ hr {
 
 }
 
+audio__note {
+    margin-top: -20px;
+}
+
 #wins, #losses {
     float: left;
     text-align: center;
