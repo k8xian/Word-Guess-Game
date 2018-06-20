@@ -8,6 +8,26 @@ var currentWord = [];
 var incorrectLetters = [];  
 var guessed = [];
 
+var audioCorrect = new Audio('assets/audio/correct.mp3');
+    audioCorrect.preload = "auto";
+    //audioCorrect.play();
+
+var audioIncorrect = new Audio('assets/audio/incorrect.mp3');
+    audioIncorrect.preload = "auto";
+        //audioIncorrect.play();
+
+var audioSpace = new Audio('assets/audio/space.mp3');
+    audioSpace.preload = "auto";
+        //audioSpace.play();
+
+var audioWin = new Audio('assets/audio/win.mp3');
+    audioWin.preload = "auto";
+        //audioWin.play();
+
+var audioLose = new Audio('assets/audio/lose.mp3');
+    audioLose.preload = "auto";
+        //audioLose.play();
+
 //giant object
 var spaceTheGame =  {
     planets: [ "mercury","venus","earth","mars","jupiter","saturn","neptune","uranus","pluto",],
@@ -88,6 +108,7 @@ var spaceTheGame =  {
 //press space to start or continue! 
 document.addEventListener('keydown', function (e) {
     if(e.keyCode == 32) {
+        audioSpace.play();
         spaceTheGame.startOver(); 
 // change visibility of box upon click
     
@@ -113,6 +134,7 @@ document.addEventListener('keydown', function (e) {
                 hiddenLetters[i] = letterGuess;
                 console.table(hiddenLetters);
                 console.table(currentWord);
+                audioCorrect.play();
                 spaceTheGame.gameContent();
             }
         }
@@ -120,13 +142,15 @@ document.addEventListener('keydown', function (e) {
       //if it's a valid key guess, it removes a remaining guess
     } else if (spaceTheGame.keyStroke.includes(letterGuess)) {
         guesses--;
+        audioIncorrect.play();
         spaceTheGame.gameContent();
         
     };
 
     //if guesses hit 0,you lose, 'losses' increases by 1
     if (guesses === 0) {
-        losses++;  
+        losses++;
+        audioLose.play();  
         spaceTheGame.endCondition();        
         document.getElementById("endMsg").textContent = "You Lose!";
         console.log(selectedPlanet);
@@ -135,6 +159,7 @@ document.addEventListener('keydown', function (e) {
     //if you win, if guesses hit 
     if (hiddenLetters.indexOf(" _ ") === -1) {
         wins++;
+        audioWin.play();
         spaceTheGame.endCondition();     
         document.getElementById("endMsg").textContent = "You Win!";
         console.log(selectedPlanet); 5000

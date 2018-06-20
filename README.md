@@ -25,4 +25,5 @@
 
 
 ##credits
-background image source https://pxhere.com/en/photo/674008
+* background image source https://pxhere.com/en/photo/674008
+* sounds from http://www.trekcore.com/audio/
